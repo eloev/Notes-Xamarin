@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Notes.data;
+using Notes.presentation;
+using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
+using System.Linq;
 
 namespace Notes
 {
@@ -11,36 +14,42 @@ namespace Notes
         public MainPage()
         {
             InitializeComponent();
-            Notes = new List<Note>
-            {
-                new Note {Title="Galaxy S8 asdasd adasda sdasda asdasdad asd", Body="Samsung", Date=Format(DateTime.Today) },
-                new Note {Title="Huawei P10", Body="Huawei", Date=Format(DateTime.Now) },
-                new Note {Title="HTC U Ultra", Body="HTC asdasd adasda sdasda asda sdad asdasdasd adasda sdasda asdasdad asd asdasd adasda sdasda asdasdad asd", Date=Format(DateTime.Now) },
-                new Note {Title="iPhone 7", Body="Apple", Date=Format(DateTime.Now.AddDays(1D)) }
-            };
             BindingContext = this;
         }
 
-        private void AddButtonClicked(object sender, EventArgs e)
+        protected override void OnAppearing()
         {
-
+            Notes = App.Database.GetItems().ToList();
+            notesList.FlowItemsSource = Notes;
+            base.OnAppearing();
         }
 
+        // Кнопка добавить
+        private async void AddButtonClicked(object sender, EventArgs e)
+        {
+            Note note = new Note();
+            NotePage notePage = new NotePage
+            {
+                BindingContext = note
+            };
+            await Navigation.PushAsync(notePage);
+        }
+
+        // Обработка тапа по элементу
         public Command ItemTappedCommand
         {
             get
             {
-                return new Command((note) =>
+                return new Command(async(item) =>
                 {
-                    var itemNote = note as Note;
-                    this.DisplayAlert(itemNote.Title, itemNote.Body, itemNote.Date);
+                    var itemNote = item as Note;
+                    NotePage notePage = new NotePage
+                    {
+                        BindingContext = itemNote
+                    };
+                    await Navigation.PushAsync(notePage);
                 });
             }
-        }
-
-        private string Format(DateTime date)
-        {
-            return date.Day < 10 ? date.ToString("d MMMMMMMMM") : date.ToString("dd MMMMMMMMM");
         }
     }
 }

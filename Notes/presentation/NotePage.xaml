@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Notes.presentation.NotePage">
+
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label Text="Редактор" TextColor="White" HorizontalTextAlignment="Center" FontSize="20" Margin="0, 0, 75, 0" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <AbsoluteLayout BackgroundColor="#060606">
+
+        <StackLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                     AbsoluteLayout.LayoutFlags="SizeProportional"
+                     HorizontalOptions="FillAndExpand" 
+                     VerticalOptions="FillAndExpand">
+            <Entry Text="{Binding Title}" Placeholder="Заголовок" PlaceholderColor ="#969696" TextColor="White" FontSize="Large" Margin="10"/>
+            <Editor Text="{Binding Body}" Placeholder="Заметка" PlaceholderColor ="#969696" TextColor="White" FontSize="Medium" HeightRequest="400" Margin="10"/>
+        </StackLayout>
+
+        <ImageButton CornerRadius="30" Source="ic_plus" Clicked="DeleteNote" Rotation="45"
+                     AbsoluteLayout.LayoutBounds="0.9, 0.95, 60, 60"
+                     AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
+        <ImageButton CornerRadius="30" Source="ic_okey" Clicked="SaveNote"
+                     AbsoluteLayout.LayoutBounds="0.65, 0.95, 60, 60"
+                     AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
+    </AbsoluteLayout>
+</ContentPage>

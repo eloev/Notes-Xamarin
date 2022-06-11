@@ -4,13 +4,18 @@
              xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
              x:Class="Notes.MainPage">
 
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label Text="Заметки" TextColor="White" HorizontalTextAlignment="Center" FontSize="20" Margin="0, 0, 25, 0" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+
     <AbsoluteLayout>
         <StackLayout BackgroundColor="#060606"
                      AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
                      AbsoluteLayout.LayoutFlags="SizeProportional"
                      HorizontalOptions="FillAndExpand" 
                      VerticalOptions="FillAndExpand">
-            <Label Text="Заметки" HorizontalTextAlignment="Start" TextColor="White" FontSize="36" Padding="16, 20, 20, 20"/>
             <flv:FlowListView x:Name="notesList"
                               FlowColumnCount="2"
                               FlowItemTappedCommand="{Binding ItemTappedCommand}" 
@@ -21,7 +26,7 @@
                         <Frame BackgroundColor="#292929" Padding="8" Margin="8" CornerRadius="8">
                             <StackLayout>
                                 <Label Text="{Binding Title}" HorizontalOptions="Start" FontSize="18" TextColor="#f2f2f2" MaxLines="1" LineBreakMode="TailTruncation"/>
-                                <Label Text="{Binding Body}" FontSize="15" TextColor="#adadad" MaxLines="5" LineBreakMode="TailTruncation" HeightRequest="86" />
+                                <Label Text="{Binding Body}" FontSize="15" TextColor="#adadad" MaxLines="5" LineBreakMode="TailTruncation" HeightRequest="90" />
                                 <Label Text="{Binding Date}" FontSize="12" TextColor="#969696"/>
                             </StackLayout>
                         </Frame>
