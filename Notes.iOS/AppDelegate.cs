@@ -24,6 +24,7 @@ namespace Notes.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
+            UIApplication.SharedApplication.StatusBarStyle = UIStatusBarStyle.DarkContent;
 
             return base.FinishedLaunching(app, options);
         }

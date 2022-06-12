@@ -11,8 +11,7 @@
     </NavigationPage.TitleView>
 
     <AbsoluteLayout>
-        <StackLayout BackgroundColor="#060606"
-                     AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+        <StackLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
                      AbsoluteLayout.LayoutFlags="SizeProportional"
                      HorizontalOptions="FillAndExpand" 
                      VerticalOptions="FillAndExpand">
@@ -20,7 +19,8 @@
                               FlowColumnCount="2"
                               FlowItemTappedCommand="{Binding ItemTappedCommand}" 
                               HasUnevenRows="True"
-                              FlowItemsSource="{Binding Notes}" >
+                              FlowItemsSource="{Binding Notes}"
+                              BackgroundColor="#060606">
                 <flv:FlowListView.FlowColumnTemplate>
                     <DataTemplate>
                         <Frame BackgroundColor="#292929" Padding="8" Margin="8" CornerRadius="8">

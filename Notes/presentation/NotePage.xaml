@@ -15,15 +15,15 @@
                      AbsoluteLayout.LayoutFlags="SizeProportional"
                      HorizontalOptions="FillAndExpand" 
                      VerticalOptions="FillAndExpand">
-            <Entry Text="{Binding Title}" Placeholder="Заголовок" PlaceholderColor ="#969696" TextColor="White" FontSize="Large" Margin="10"/>
-            <Editor Text="{Binding Body}" Placeholder="Заметка" PlaceholderColor ="#969696" TextColor="White" FontSize="Medium" HeightRequest="400" Margin="10"/>
+            <Entry Text="{Binding Title}" BackgroundColor="#060606" Placeholder="Заголовок" PlaceholderColor ="#969696" TextColor="White" FontSize="Large" Margin="10"/>
+            <Editor Text="{Binding Body}" BackgroundColor="#060606" Placeholder="Заметка" PlaceholderColor ="#969696" TextColor="White" FontSize="Medium" HeightRequest="400" Margin="10"/>
         </StackLayout>
 
-        <ImageButton CornerRadius="30" Source="ic_plus" Clicked="DeleteNote" Rotation="45"
+        <ImageButton CornerRadius="25" Source="ic_plus" Clicked="DeleteNote" Rotation="45"
                      AbsoluteLayout.LayoutBounds="0.9, 0.95, 50, 50"
                      AbsoluteLayout.LayoutFlags="PositionProportional"/>
 
-        <ImageButton CornerRadius="30" Source="ic_okey" Clicked="SaveNote"
+        <ImageButton CornerRadius="25" Source="ic_okey" Clicked="SaveNote"
                      AbsoluteLayout.LayoutBounds="0.65, 0.95, 50, 50"
                      AbsoluteLayout.LayoutFlags="PositionProportional"/>
 

@@ -61,6 +61,7 @@
     <MtouchArch>ARM64</MtouchArch>
     <CodesignKey>iPhone Developer</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -129,7 +130,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Notes\Notes.csproj">
-      <Project>{BF7F04BA-0F39-42F6-8485-824E707B2FD1}</Project>
+      <Project>{68F3E1BE-B1F7-49D7-AED7-730AC4622426}</Project>
       <Name>Notes</Name>
     </ProjectReference>
   </ItemGroup>
@@ -138,5 +139,9 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ic_okey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork" />
+    <ITunesArtwork Include="iTunesArtwork%402x" />
   </ItemGroup>
 </Project>
